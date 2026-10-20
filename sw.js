@@ -1,5 +1,5 @@
 // Keeps the (encrypted) app on the phone so it opens with no signal.
-// 84db78a481 is filled in by build.mjs, so every build replaces the old cache.
+// 2afdd44529 is filled in by build.mjs, so every build replaces the old cache.
 const CACHE = 'qb-web-%VERSION%';
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 const NETWORK_WAIT_MS = 3000; // weak rural signal: don't hang, use the saved copy
