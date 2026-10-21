@@ -1,11 +1,11 @@
 {
-  "name": "QuoteBuild",
-  "short_name": "QuoteBuild",
+  "name": "Vreedo",
+  "short_name": "Vreedo",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#1f3a5f",
-  "theme_color": "#1f3a5f",
+  "background_color": "#0F2328",
+  "theme_color": "#0F2328",
   "icons": [
     {
       "src": "icon-192.png",
