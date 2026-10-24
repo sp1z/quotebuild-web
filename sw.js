@@ -1,6 +1,6 @@
 // Keeps the (encrypted) app on the phone so it opens with no signal.
 // The version is filled in by build.mjs, so every build replaces the old cache.
-const CACHE = 'qb-web-85767b0465';
+const CACHE = 'qb-web-26053a86d2';
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 const NETWORK_WAIT_MS = 3000; // weak rural signal: don't hang, use the saved copy
 
@@ -11,7 +11,8 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      // Only our own old caches: other sites on the same github.io address keep theirs.
+      .then(keys => Promise.all(keys.filter(k => k.startsWith('qb-web-') && k !== CACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
